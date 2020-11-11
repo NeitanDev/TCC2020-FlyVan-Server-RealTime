@@ -5,7 +5,7 @@ module.exports = {
         const sounou = {latitude,longitude,id_viagem};
         req.io.emit(`rastreamento/${id_viagem}`, sounou);
 
-        res.json( {latitude,longitude,id_viagem})
+        return res.json( {latitude,longitude,id_viagem})
     },
 
     async notificar(req,res){
@@ -14,7 +14,7 @@ module.exports = {
 
         console.log('sounou')
 
-        res.json( {id_passageiro})
+        return res.json( {id_passageiro})
     },
 
     async cancelarViagem(req,res){
@@ -31,8 +31,6 @@ module.exports = {
         const {motorista_id,dado} =  req.body;
         req.io.emit(`solicitacoes/${motorista_id}`, dado);
 
-        // console.log('sounou')
-
-        res.json(dado)
+        return res.json(dado)
     },
 };
