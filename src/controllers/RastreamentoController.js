@@ -31,8 +31,8 @@ module.exports = {
         const {motorista_id,dado} =  req.body;
         req.io.emit(`solicitacoes/${motorista_id}`, dado);
 
-        console.log('sounou')
+        // console.log('sounou')
 
-        res.json( {id_passageiro})
+        res.json(dado)
     },
 };
