@@ -25,5 +25,14 @@ module.exports = {
         req.io.emit(`cancela/viagem/${id_viagem}`,dados);
 
         return res.json({sounou:true})
-    }
+    },
+
+    async solicitacoes(req,res){
+        const {motorista_id,dado} =  req.body;
+        req.io.emit(`solicitacoes/${motorista_id}`, dado);
+
+        console.log('sounou')
+
+        res.json( {id_passageiro})
+    },
 };
